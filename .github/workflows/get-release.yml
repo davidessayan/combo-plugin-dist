@@ -9,7 +9,7 @@ jobs:
   GetRelease:
     runs-on: ubuntu-latest
     steps:
-      uses: kumarabd/publish-release-to-another-action@v1.0.0
+    - uses: kumarabd/publish-release-to-another-action@v1.0.0
       with:
         repo: "davidessayan/combo-plugin"
         version: "latest"
