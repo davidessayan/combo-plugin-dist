@@ -1,0 +1,18 @@
+name: Get latest release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  GetRelease:
+    runs-on: ubuntu-latest
+    steps:
+      uses: kumarabd/publish-release-to-another-action@v1.0.0
+      with:
+        repo: "davidessayan/combo-plugin"
+        version: "latest"
+        file: "cbo-wp.zip"
+        target: "cbo-wp.zip"
+        token: ${{ secrets.GH_TOKEN }}
