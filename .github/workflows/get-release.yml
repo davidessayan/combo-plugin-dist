@@ -1,18 +1,13 @@
-name: Get latest release
-
-on:
-  push:
-    branches:
-      - main
+name: Release
+on: [push, repository_dispatch]
 
 jobs:
-  GetRelease:
+  build:
+    name: RedisTimeSeries
     runs-on: ubuntu-latest
     steps:
-    - uses: kumarabd/publish-release-to-another-action@v1.0.0
-      with:
-        repo: "davidessayan/combo-plugin"
-        version: "latest"
-        file: "cbo-wp.zip"
-        target: "cbo-wp.zip"
-        token: ${{ secrets.GH_TOKEN }}
+      - id: combo
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          repository: davidessayan/combo-plugin
+          token: ${{ secrets.GH_TOKEN }}
